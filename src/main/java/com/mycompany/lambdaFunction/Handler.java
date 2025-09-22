@@ -27,11 +27,11 @@ public class Handler implements RequestHandler<S3Event, String> {
 
         int mb = 1024 * 1024;
         if (object.contentLength() > mb) { // Se o tamanho do objeto de upload for maior que 1mb
-            System.out.println("Objeto muito grande");
+            context.getLogger().log("Objeto muito grande\n");
             return "Objeto muito grande";
         }
 
-        System.out.println("Objeto de tamanho ok");
+        context.getLogger().log("Objeto de tamanho OK!\n");
         return "Objeto de tamanho ok";
     }
 }
